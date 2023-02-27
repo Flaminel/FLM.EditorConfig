@@ -51,18 +51,26 @@
 	</Target>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.0">
+		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.5-beta1.23080.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.5.0">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="Roslynator.Analyzers" Version="3.0.0">
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0-preview1.23080.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Roslynator.Analyzers" Version="4.2.0">
 			<PrivateAssets>none</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="1.0.0">
+		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="4.2.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Roslynator.Formatting.Analyzers" Version="1.0.0">
+		<PackageReference Include="Roslynator.Formatting.Analyzers" Version="4.2.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
