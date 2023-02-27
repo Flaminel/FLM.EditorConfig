@@ -136,7 +136,7 @@ dotnet_diagnostic.IDE0008.severity = error
 dotnet_diagnostic.IDE0008.severity = error
 
 # Expression-bodied members
-csharp_style_expression_bodied_methods = true:silent
+csharp_style_expression_bodied_methods = true:suggestion
 csharp_style_expression_bodied_constructors = true:suggestion
 csharp_style_expression_bodied_operators = true:suggestion
 csharp_style_expression_bodied_properties = true:suggestion
@@ -233,7 +233,7 @@ csharp_preserve_single_line_blocks = true
 dotnet_diagnostic.CA1848.severity = none
 
 # IDE0022: Use expression body for method
-dotnet_diagnostic.IDE0022.severity = silent
+dotnet_diagnostic.IDE0022.severity = suggestion
 
 [*]
 
@@ -478,7 +478,7 @@ dotnet_diagnostic.CA1725.severity = suggestion
 dotnet_diagnostic.CA1801.severity = suggestion
 
 # CA2227: Collection properties should be read only
-dotnet_diagnostic.CA2227.severity = suggestion
+dotnet_diagnostic.CA2227.severity = warning
 
 
 ###########################
