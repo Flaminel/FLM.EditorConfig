@@ -1,26 +1,25 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
-		<Authors>Flaminel</Authors>
-		<Copyright>Flaminel</Copyright>
-		<Company>FLM</Company>
-		<Description>Package for .editorconfig file.</Description>
-		<SignAssembly>false</SignAssembly>
-		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<RepositoryUrl>https://github.com/Flaminel/FLM.EditorConfig</RepositoryUrl>
-		<Description>Distributes a common .editorconfig file, where the code will run in a SynchronisationContext - i.e. where ConfigureAwait() is required on a Task - e.g. in a code library or UI project.</Description>
-		<IsPackable>true</IsPackable>
-		<IncludeSource>true</IncludeSource>
-		<NoDefaultExcludes>true</NoDefaultExcludes>
-		<LangVersion>latest</LangVersion>
-		<Nullable>enable</Nullable>
-	</PropertyGroup>
-
-	<!-- Select the MSBuild props and composed .editorconfig files to pack -->
-	<ItemGroup>
-		<None Include="build\FLM.EditorConfig.props" Pack="true" PackagePath="build\" />
-		<Content Include="Rules\.editorconfig" Pack="true" PackagePath="content\Rules"></Content>
-	</ItemGroup>
-
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Authors>Flaminel</Authors>
+    <Copyright>Flaminel</Copyright>
+    <Company>FLM</Company>
+    <Description>Package for .editorconfig file.</Description>
+    <SignAssembly>false</SignAssembly>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/Flaminel/FLM.EditorConfig</RepositoryUrl>
+    <Description>Distributes a common .editorconfig file, where the code will run in a SynchronisationContext - i.e. where ConfigureAwait() is required on a Task - e.g. in a code library or UI project.</Description>
+    <IsPackable>true</IsPackable>
+    <IncludeSource>true</IncludeSource>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0.0</Version>
+  </PropertyGroup>
+  <!-- Select the MSBuild props and composed .editorconfig files to pack -->
+  <ItemGroup>
+    <None Include="build\FLM.EditorConfig.props" Pack="true" PackagePath="build\" />
+    <Content Include="Rules\.editorconfig" Pack="true" PackagePath="content\Rules"></Content>
+  </ItemGroup>
 </Project>
