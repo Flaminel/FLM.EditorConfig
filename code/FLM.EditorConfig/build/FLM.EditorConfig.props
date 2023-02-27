@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Authors>Flaminel</Authors>
+		<Copyright>Flaminel</Copyright>
+		<Company>FLM</Company>
+		<Description>Package for .editorconfig file.</Description>
+		<SignAssembly>false</SignAssembly>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<RepositoryUrl>https://github.com/Flaminel/FLM.EditorConfig</RepositoryUrl>
+		<IsPackable>true</IsPackable>
+		<IncludeSource>true</IncludeSource>
+		<NoDefaultExcludes>true</NoDefaultExcludes>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<WarningsAsErrors>nullable</WarningsAsErrors>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+		<RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!--
+      Workaround for changing severity of rules with Location.None - e.g. CA1014
+        - see https://github.com/dotnet/roslyn/issues/37876#issuecomment-738042719
+      Needed until those types of rules can be disabled in a Global Analyzer Config
+        - when https://github.com/dotnet/roslyn/issues/48634 is implemented.
+      # CA1014: Mark assemblies with CLSCompliantAttribute
+    -->
+		<NoWarn>$(NoWarn);CA1014</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EditorConfigFilesToCopy Include="$(MSBuildThisFileDirectory)..\content\Rules\.editorconfig" />
+	</ItemGroup>
+
+	<Target Name="CopyEditorConfig" BeforeTargets="BeforeBuild">
+		<Message Text="Copying the .editorconfig file from '@(EditorConfigFilesToCopy)' to '$(SolutionDir)'"></Message>
+		<Copy
+		  SourceFiles="@(EditorConfigFilesToCopy)"
+		  DestinationFolder="$(SolutionDir)"
+		  SkipUnchangedFiles="true"
+		  UseHardlinksIfPossible="false" />
+	</Target>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.0">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Roslynator.Analyzers" Version="3.0.0">
+			<PrivateAssets>none</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Roslynator.CodeAnalysis.Analyzers" Version="1.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Roslynator.Formatting.Analyzers" Version="1.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+</Project>
