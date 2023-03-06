@@ -15,7 +15,7 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <Version>1.0.6.0</Version>
+    <Version>1.0.7.0</Version>
   </PropertyGroup>
   <!-- Select the MSBuild props and composed .editorconfig files to pack -->
   <ItemGroup>
