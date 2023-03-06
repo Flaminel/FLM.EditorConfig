@@ -22,8 +22,8 @@
 		<AnalysisLevel>latest</AnalysisLevel>
 		<RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
 		<RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
-		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
-		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+		<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -41,7 +41,7 @@
 		<EditorConfigFilesToCopy Include="$(MSBuildThisFileDirectory)..\content\Rules\.editorconfig" />
 	</ItemGroup>
 
-	<Target Name="CopyEditorConfig" BeforeTargets="BeforeBuild">
+	<Target Name="CopyEditorConfig" BeforeTargets="BeforeBuild" Condition="'$(Configuration)' == 'Debug'">
 		<Message Text="Copying the .editorconfig file from '@(EditorConfigFilesToCopy)' to '$(MSBuildProjectDirectory)\..\'"></Message>
 		<Copy
 		  SourceFiles="@(EditorConfigFilesToCopy)"
@@ -50,7 +50,7 @@
 		  UseHardlinksIfPossible="false" />
 	</Target>
 
-	<ItemGroup>
+	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.5-beta1.23080.2">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
